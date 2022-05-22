@@ -145,14 +145,15 @@ cat << EOF > "$WINEPREFIX/photoshop_launcher.sh"
 DESKTOP_PATH='$DESKTOP_PATH'
 SCRIPT_PATH="\$(dirname \`realpath \$0\`)"
 export WINEPREFIX="\$SCRIPT_PATH"
-export DXVK_STATE_CACHE_PATH="\$SCRIPT_PATH"
+export DXVK_STATE_CACHE_PATH="\$WINEPREFIX"
+export DXVK_LOG_PATH="\$WINEPREFIX"
 export SCR_PATH="pspath"
 export CACHE_PATH="pscache"
 export RESOURCES_PATH="\$SCR_PATH/resources"
 export WINE_PREFIX="\$SCR_PATH/prefix"
 if [ "\$1" == "launch" ]; then
     FILE_PATH=\$(winepath -w "\$2")
-    wine "\$SCRIPT_PATH/drive_c/Program Files/Adobe/Adobe Photoshop 2022/photoshop.exe" "\$FILE_PATH" &
+    wine "\$WINEPREFIX/drive_c/Program Files/Adobe/Adobe Photoshop 2022/photoshop.exe" "\$FILE_PATH" &
     exit 0
 fi
 if [ "\$1" == "generate" ]; then
