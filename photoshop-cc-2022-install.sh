@@ -139,11 +139,11 @@ cat << EOF > "$WINEPREFIX/photoshop_launcher.sh"
 DESKTOP_PATH='$DESKTOP_PATH'
 SCRIPT_PATH="\$(dirname \`realpath \$0\`)"
 export WINEPREFIX="\$SCRIPT_PATH"
-export DXVK_STATE_CACHE_PATH="SCRIPT_PATH"
-SCR_PATH="pspath"
-CACHE_PATH="pscache"
-RESOURCES_PATH="\$SCR_PATH/resources"
-WINE_PREFIX="\$SCR_PATH/prefix"
+export DXVK_STATE_CACHE_PATH="\$SCRIPT_PATH"
+export SCR_PATH="pspath"
+export CACHE_PATH="pscache"
+export RESOURCES_PATH="\$SCR_PATH/resources"
+export WINE_PREFIX="\$SCR_PATH/prefix"
 if [ "\$1" == "launch" ]; then
     FILE_PATH=\$(winepath -w "\$2")
     wine "\$SCRIPT_PATH/drive_c/Program Files/Adobe/Adobe Photoshop 2022/photoshop.exe" "\$FILE_PATH" &
@@ -153,6 +153,7 @@ if [ "\$1" == "generate" ]; then
     cat << EoF > "\$WINEPREFIX/photoshop-wine.desktop"
 [Desktop Entry]
 Name=Adobe Photoshop 2022
+Path=\$WINEPREFIX
 Exec=bash -c "'\$WINEPREFIX/photoshop_launcher.sh' launch '%F'"
 Type=Application
 Comment=Adobe Photoshop 2022 (Wine)
