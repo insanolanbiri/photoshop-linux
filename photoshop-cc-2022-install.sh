@@ -13,9 +13,15 @@ Cyn='\033[0;36m' # Cyan
 Wht='\033[0;37m' # White
 
 #check wine installed
-command -v ine >/dev/null 2>&1 || { 
+command -v wine >/dev/null 2>&1 || { 
     echo -e "${Red}Looks like wine is not installed on this system.${Rst}" >&2
     echo -e "${Red}You can install wine from here: ${Ylw}https://wiki.winehq.org/Download${Rst}" >&2
+    exit 1
+    }
+
+#check wget installed
+command -v wget >/dev/null 2>&1 || { 
+    echo -e "${Red}Looks like wget is not installed on this system.${Rst}" >&2
     exit 1
     }
 
