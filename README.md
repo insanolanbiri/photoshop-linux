@@ -7,4 +7,4 @@ one-line install:
 -----------------
 `wget -q -O- https://raw.githubusercontent.com/insanolanbiri/photoshop-linux/master/photoshop-install.sh | env bash`
 
-or, if you want to specify the install path: `wget -q -O- https://raw.githubusercontent.com/insanolanbiri/photoshop-linux/master/photoshop-install.sh | env PHOTOSHOP_PATH=/a/non/relivative/path bash`
+or, if you want to specify the install path: `wget -q -O- https://raw.githubusercontent.com/insanolanbiri/photoshop-linux/master/photoshop-install.sh | env PHOTOSHOP_PATH=/a/non/relative/path bash`
