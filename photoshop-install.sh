@@ -79,6 +79,8 @@ ad8627ab2af003e47f62ed2b4e41460cd4b66b06b63f573456f2db41d60ad180 $TEMP_DIR/msvcp
 DOWNLOAD_URL_A="$DOWNLOAD_URL/PS2022"
 DOWNLOAD_URL_BACKUP_A="$DOWNLOAD_URL_BACKUP/PS2022"
 
+mkdir -p "$TEMP_DIR"
+
 installCameraRaw() {
     if [ -f "$TEMP_DIR/CameraRaw.exe" ] && (echo "$SHA256_CHECKSUMS" | grep "CameraRaw.exe" | sha256sum --check --status); then
         echo -e "${Ylw}Using cached CameraRaw${Rst}"
